@@ -56,7 +56,7 @@ Preporučuje se kreiranje virtuelnog okruženja. Potrebne biblioteke možete ins
 pip install numpy scipy matplotlib scikit-image jupyter
 
 jupyter notebook gaussian_median_chambolle.ipynb
-
+```
 ## 📚 Literatura
 
 1. Rudin, L. I., Osher, S., & Fatemi, E. (1992). **Nonlinear total variation based noise removal algorithms**. *Physica D: Nonlinear Phenomena*. [Pročitaj rad](https://web.eecs.utk.edu/~hqi/ece692/references/noise-TV-PhysicaD92.pdf)
