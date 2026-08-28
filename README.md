@@ -4,6 +4,8 @@ Ovaj projekat predstavlja studentsku implementaciju i komparativnu analizu savre
 
 
 ## 📋 Pregled projekta
+Autorke projekta: **Natalija Filipović** i **Irina Marko**
+
 Glavni cilj projekta je uklanjanje aditivnog Gausovog šuma iz slika uz očuvanje oštrine ivica i finih strukturnih detalja. Dok tradicionalni filteri često zamućuju prelaze između objekata, regularizacija totalne varijacije uspešno rešava ovaj problem tretiranjem slike kroz prostore funkcija ograničene varijacije.
 
 U projektu su upoređene tri metode:
@@ -38,10 +40,11 @@ $$p^{n+1} = \frac{p^n + \tau \nabla(\text{div}(p^n) - f/\lambda)}{1 + \tau \Vert
 gde je $\tau \le 1/8$ korak gradijentnog spusta koji obezbeđuje konvergenciju algoritma.
 
 ## 📈 Evaluacija i rezultati
-Kvalitet rekonstrukcije se meri pomoću dve standardne metrike u odnosu na originalnu (čistu) sliku:
+Kvalitet rekonstrukcije se meri pomoću tri standardne metrike u odnosu na originalnu (čistu) sliku:
 
 - **MSE (Mean Squared Error):** Prosečna kvadratna greška. Cilj je postići što manju vrednost.
 - **PSNR (Peak Signal-to-Noise Ratio):** Odnos vršnog signala i šuma izražen u decibelima (dB). Veća vrednost označava kvalitetniju i očuvaniju sliku.
+- **SSIM (Structural Similarity Index Measure):** Indeks strukturne sličnosti koji meri očuvanje kontrasta, luminansu i strukturu (vrednosti od -1 do 1, gde je 1 savršeno poklapanje sa originalom).
 
 **Ključni zaključci:**
 - **Očuvanje ivica:** Chambolle TV algoritam postiže značajno viši PSNR i manji MSE u poređenju sa Gausovim filterom, jer ne zamućuje granice objekata.
