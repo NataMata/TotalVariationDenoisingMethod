@@ -1,7 +1,7 @@
 # Uklanjanje šuma iz slika pomoću totalne varijacije
 
-Ovaj projekat predstavlja studentsku implementaciju i komparativnu analizu savremenih metoda za restauraciju digitalnih slika, sa posebnim fokusom na Rudin-Osher-Fatemi (ROF) model i Chambolle-ov projekcioni algoritam za minimizaciju totalne varijacije (TV). Rezultati su upoređeni sa klasičnim linearnim (Gaussian) i nelinearnim (Median) filterima.
-
+Ovaj projekat predstavlja implementaciju i analizu savremenih metoda za uklanjanje šuma sa digitalnih slika. Prisustvo šuma na slikama je neizbežna pojava koja nastaje kao posledica prirode svetlosti i načina na koji je slika napravljena. Šum može značajno degradirati kvalitet slike i otežati njenu analizu i obradu. Zbog toga je neophodno primeniti metode za uklanjanje šuma.
+Poseban fokus u radu stavljen je na Rudin-Osher-Fatemi (ROF) model i Chambolle-ov projekcioni algoritam za minimizaciju totalne varijacije (TV). Performanse ovih metoda upoređene su sa klasičnim linearnim (Gaussian) i nelinearnim (Median) filterima. Kvalitet rezultata procenjen je odgovarajućim metrikama za evaluaciju kvaliteta slike, uz prikaz obrađenih slika.
 
 ## 📋 Pregled projekta
 Autorke projekta: **Natalija Filipović** i **Irina Marko**
@@ -10,7 +10,7 @@ Glavni cilj projekta je uklanjanje aditivnog Gausovog šuma iz slika uz očuvanj
 
 U projektu su upoređene tri metode:
 
-- **Gausov filter (Gaussian blur):** Linearni filter koji uklanja šum, ali istovremeno deluje kao niskopropusni filter, čime nepovratno zamućuje ivice.
+- **Gausov filter (Gaussian blur):** Linearni filter koji uklanja šum, ali istovremeno deluje kao niskopropusni filter - propušta niske frekvencije, odnosno postepene promene na slici, dok ublažva visoke frekvencije kao što su ivice, zbog čega se nagle oštre promene postaju zamućene
 - **Medijanski filter (Median filter):** Nelinearni filter, izuzetno efikasan za impulsni ("so i biber") šum, ali sa slabijim performansama na visokofrekventnom Gausovom šumu.
 - **Chambolle TV algoritam:** Iterativna metoda koja minimizuje totalnu varijaciju slike. Uspešno uklanja sitne oscilacije (šum), dok velike skokove intenziteta (ivice) ostavlja netaknutim.
 
@@ -43,7 +43,7 @@ gde je $\tau \le 1/8$ korak gradijentnog spusta koji obezbeđuje konvergenciju a
 Kvalitet rekonstrukcije se meri pomoću tri standardne metrike u odnosu na originalnu (čistu) sliku:
 
 - **MSE (Mean Squared Error):** Prosečna kvadratna greška. Cilj je postići što manju vrednost.
-- **PSNR (Peak Signal-to-Noise Ratio):** Odnos vršnog signala i šuma izražen u decibelima (dB). Veća vrednost označava kvalitetniju i očuvaniju sliku.
+- **PSNR (Peak Signal-to-Noise Ratio):** Odnos maksimalne vrednosti signala i šuma izražen u decibelima (db). Veća vrednost označava kvalitetniju i očuvaniju sliku.
 - **SSIM (Structural Similarity Index Measure):** Indeks strukturne sličnosti koji meri očuvanje kontrasta, luminansu i strukturu (vrednosti od -1 do 1, gde je 1 savršeno poklapanje sa originalom).
 
 **Ključni zaključci:**
@@ -52,15 +52,19 @@ Kvalitet rekonstrukcije se meri pomoću tri standardne metrike u odnosu na origi
 
 ## 🚀 Kako pokrenuti projekat
 
-**Prerekviziti**
-Preporučuje se kreiranje virtuelnog okruženja. Potrebne biblioteke možete instalirati pokretanjem:
+**Instalacija biblioteka**
+Potrebne biblioteke instalirati pokretanjem:
 
 ```bash
 pip install numpy scipy matplotlib scikit-image jupyter
+```
 
+**Pokretanje skipte**
+
+```bash
 jupyter notebook gaussian_median_chambolle.ipynb
 ```
 ## 📚 Literatura
 
-1. Rudin, L. I., Osher, S., & Fatemi, E. (1992). **Nonlinear total variation based noise removal algorithms**. *Physica D: Nonlinear Phenomena*. [Pročitaj rad](https://web.eecs.utk.edu/~hqi/ece692/references/noise-TV-PhysicaD92.pdf)
-2. Chambolle, A. (2004). **Chambolle’s Projection Algorithm for Total Variation Denoising** (IPOL Journal implementacija i analiza). [Pročitaj rad](https://www.ipol.im/pub/art/2013/61/article_lr.pdf)
+1. Rudin, L. I., Osher, S., & Fatemi, E. (1992). [**Nonlinear total variation based noise removal algorithms**](https://web.eecs.utk.edu/~hqi/ece692/references/noise-TV-PhysicaD92.pdf). *Physica D: Nonlinear Phenomena*.
+2. Chambolle, A. (2004). [**Chambolle’s Projection Algorithm for Total Variation Denoising**](https://www.ipol.im/pub/art/2013/61/article_lr.pdf) (IPOL Journal implementacija i analiza).
