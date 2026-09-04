@@ -44,7 +44,7 @@ Kvalitet rekonstrukcije se meri pomoću tri standardne metrike u odnosu na origi
 
 - **MSE (Mean Squared Error):** Prosečna kvadratna greška. Cilj je postići što manju vrednost.
 - **PSNR (Peak Signal-to-Noise Ratio):** Odnos maksimalne vrednosti signala i šuma izražen u decibelima (db). Veća vrednost označava kvalitetniju i očuvaniju sliku.
-- **SSIM (Structural Similarity Index Measure):** Indeks strukturne sličnosti koji meri očuvanje kontrasta, luminansu i strukturu (vrednosti od -1 do 1, gde je 1 savršeno poklapanje sa originalom).
+- **SSIM (Structural Similarity Index Measure):** Indeks strukturne sličnosti koji meri očuvanje kontrasta, osvetljenja i strukture (vrednosti od -1 do 1, gde je 1 savršeno poklapanje sa originalom).
 
 **Ključni zaključci:**
 - **Očuvanje ivica:** Chambolle TV algoritam postiže značajno viši PSNR i manji MSE u poređenju sa Gausovim filterom, jer ne zamućuje granice objekata.
