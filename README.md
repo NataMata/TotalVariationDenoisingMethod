@@ -39,16 +39,23 @@ $$p^{n+1} = \frac{p^n + \tau \nabla(\text{div}(p^n) - f/\lambda)}{1 + \tau \Vert
 
 gde je $\tau \le 1/8$ korak gradijentnog spusta koji obezbeđuje konvergenciju algoritma.
 
+## Podaci 
+
+Opisane metode primenjene su na tri različite slike. Anlizom rezultata svih posmatranih slika, izvedeni su globalni zaključci o performansama metoda.
+
 ## 📈 Evaluacija i rezultati
 Kvalitet rekonstrukcije se meri pomoću tri standardne metrike u odnosu na originalnu (čistu) sliku:
 
 - **MSE (Mean Squared Error):** Prosečna kvadratna greška. Cilj je postići što manju vrednost.
 - **PSNR (Peak Signal-to-Noise Ratio):** Odnos maksimalne vrednosti signala i šuma izražen u decibelima (db). Veća vrednost označava kvalitetniju i očuvaniju sliku.
-- **SSIM (Structural Similarity Index Measure):** Indeks strukturne sličnosti koji meri očuvanje kontrasta, osvetljenja i strukture (vrednosti od -1 do 1, gde je 1 savršeno poklapanje sa originalom).
+- **SSIM (Structural Similarity Index Measure):** Indeks strukturne sličnosti koji meri očuvanje kontrasta, osvetljenja i strukture (vrednosti od 0 do 1, gde je 1 savršeno poklapanje sa originalom).
 
 **Ključni zaključci:**
 - **Očuvanje ivica:** Chambolle TV algoritam postiže značajno viši PSNR i manji MSE u poređenju sa Gausovim filterom, jer ne zamućuje granice objekata.
-- **Efekat stepenica (Staircase effect):** Kao teoretsko ograničenje TV regularizacije, na mestima gde slika ima blage prelaze (gradijente), algoritam teži da napravi ravne delove nalik stepenicama. Ova pojava je vizuelno dokumentovana u projektu.
+- **Stabilnost**: Median filter pokazuje najveću stabilnost prilikom povećanja intenziteta, što se ogleda kroz postepenu promenu vrednosti posmatranih metrika.
+- **Uticaj intenziteta šuma**: Sa povećanjem intenziteta šuma dolazi do pogoršanja kvaliteta slike kod svih primenjenih metoda, ali je stepen degradacije različit u zavisnosti od karakteristika konkretnog filtera.
+- **Poređenje metoda**: Rezultati pokazuju da se performanse metoda razlikuju u zavisnosti od nivoa šuma, pri čemu Chambolle TV daje najbolje rezultate u pogledu kvaliteta slike, dok Median filter pokazuje izraženiju stabilnost pri promeni intenziteta šuma.
+- **Odnos numeričkih, grafičkih i vizuelnih rezultata**: Vrednosti PSNR-a i MSE-a, kao i karakteristike signala nisu jedini pokazatelji kvaliteta obrađene slike. Vizuelna procena pokazuje da metoda sa boljim numeričkim rezultatima ne mora uvek dati i subjektivno najprirodniji izgled slike.
 
 ## 🚀 Kako pokrenuti projekat
 
